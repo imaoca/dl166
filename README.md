@@ -39,8 +39,8 @@ testbench3.v
 Test bech for DL166  
 
 asm.txt  
-sample code to test DL166.
-// this program is counting up R0 register and show this on LEDs.
+sample code to test DL166.  
+// this program is counting up R0 register and show this on LEDs.  
 00: inc R0   
 01: mov R6,R0  
 11: jmp 0  
