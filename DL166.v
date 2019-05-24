@@ -1,20 +1,3 @@
-/*
-module DL166();
-	reg reset=1;
-	reg clk;
-	wire[3:0] btn;
-	wire[3:0]led;
-	
-	cpu cpu0(reset,clk,btn,led);
-	always begin
-		clk=1;
-		#5000;
-		clk=0;
-		#5000;
-	end
-endmodule
-*/
-
 module DL166(reset,clk,btn,led);
 	input reset;
 	input clk;
@@ -38,7 +21,7 @@ module cpu(reset,clk,btn,led);
 	wire[1:0] op0,op2;
 	wire[7:0] dout;
 	
-	reg 		c_flag=1'b0;
+	reg c_flag=1'b0;
 	reg [4:0]regs[7:0];
 	
 //	assign regs[5]=btn;
@@ -80,7 +63,7 @@ module cpu(reset,clk,btn,led);
 			2'b10:
 				case(op2)
 					2'b00:regs[7]= (c_flag)?regs[7]+1:imd;			//JNC
-					2'b01:regs[7]=imd;									//JMP
+					2'b01:regs[7]=imd;					//JMP
 					2'b10:regs[0]=imd;					
 				endcase
 		endcase
