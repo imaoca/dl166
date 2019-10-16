@@ -20,16 +20,13 @@
 |01-001-sss| OR (sss)|   acc=acc or (sss)|  
 |01-010-sss| AND (sss)|  acc = acc & (sss)|  
 |01-011-sss| XOR (sss)|  acc = acc ^ (sss) | 
-
 |01-100-sss| INC (sss)|  (sss)=(sss)+1|  
 |01-101-sss| NOT (sss)|  (sss)=!(sss)|  
 |01-110-sss| RSHIFT (sss)|(sss)=(sss)>>1|  
 |01-111-sss| LSHIFT (sss)|(sss)=(sss)<<1|  
-
 |10-00-####| JNC #### |if (C==0) PC=#### else PC=PC+1|  
 |10-01-####| JMP #### |PC = ####|  
 |10-10-####| SET #### |acc=####|  
-
 |00-ddd-sss| MOV (ddd),(sss)|(ddd)=(sss)|
 
 #Files
