@@ -3,18 +3,20 @@
 
 #Registers  
 ------------------------  
-0:000 ACC  
-1:001 GR1  
-2:010 GR2  
-3:011 GR3  
-4:100 GR4  
-5:101 INPUT PORT(read only)  
-6:110 OUTPUT PORT(write only)  
-7:111 Program Counter(PC)  
+|No|Register|Description
+----|----|----
+|000| R0| Accumlator|   
+|001| R1| General Perpus Register|
+|010| R2| General Perpus Register|
+|011| R3| General Perpus Register|
+|100| R4| General Perpus Register|
+|101| R6| INPUT PORT(read only)|  
+|110| R6| OUTPUT PORT(write only)|  
+|111| R7| 7Program Counter(PC)|  
 
 #Instruction Set  
 ------------------------  
-|binary|assebler|description|
+|Binary|Assebler|Description|
 ----|----|----
 |01-000-sss| ADD (sss)|  acc=acc+(sss)|  
 |01-001-sss| OR (sss)|   acc=acc or (sss)|  
@@ -40,6 +42,5 @@ Test bech for DL166
 asm.txt  
 sample code to test DL166.  
 // this program is counting up R0 register and show this on LEDs.  
-00: inc R0   
-01: mov R6,R0  
-11: jmp 0  
+00: inc R6 // 01100110   
+01: jmp 0  // 10010000
