@@ -10,9 +10,9 @@
 |010| R2| General Perpus Register|
 |011| R3| General Perpus Register|
 |100| R4| General Perpus Register|
-|101| R6| INPUT PORT(read only)|  
+|101| R5| INPUT PORT(read only)|  
 |110| R6| OUTPUT PORT(write only)|  
-|111| R7| 7Program Counter(PC)|  
+|111| R7| Program Counter(PC)|  
 
 #Instruction Set  
 ------------------------  
