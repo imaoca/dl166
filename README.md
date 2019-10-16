@@ -14,6 +14,8 @@
 
 #Instruction Set  
 ------------------------  
+|binary|assebler|description|
+----|----|----
 |01-000-sss| ADD (sss)|  acc=acc+(sss)|  
 |01-001-sss| OR (sss)|   acc=acc or (sss)|  
 |01-010-sss| AND (sss)|  acc = acc & (sss)|  
