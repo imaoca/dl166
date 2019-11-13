@@ -44,3 +44,8 @@ sample code to test DL166.
 // this program is counting up R0 register and show this on LEDs.  
 00: inc R6 // 01100110   
 01: jmp 0  // 10010000
+
+#Known bugs
+------------------------  
+
+Carry flag behavior is incomprehensible. You must define a condition that clears the carry flag.
