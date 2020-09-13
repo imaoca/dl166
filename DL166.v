@@ -54,13 +54,3 @@ module cpu(reset,clk,btn,led);
 		if(reset==0) regs[7] = 0;
 	end
 endmodule 
-
-module rom(dout, addr);
-	output [7:0] dout;
-	input [3:0] addr;
-	reg[7:0] mem[15:0];
-	initial begin
-		`include "asm.txt"
-	end
-	assign dout = mem[addr];
-endmodule
