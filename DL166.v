@@ -1,34 +1,17 @@
-module DL166(reset,clk,btn,led);
-	input reset;
-	input clk;
-	input[3:0] btn;
-	output[3:0]led;
-	
-	reg[24:0] counter;
-	cpu cpu0(reset,counter[22],btn,led);
-	always @(posedge clk) counter = counter + 1;
-endmodule
-
-
 module cpu(reset,clk,btn,led);
 	input reset;
 	input clk;
 	input[3:0] btn;
 	output[3:0]led;
-	
+
 	wire[3:0] imd;
 	wire[2:0] op1,ddd,sss;
 	wire[1:0] op0,op2;
 	wire[7:0] dout;
-	
 	reg c_flag=1'b0;
 	reg [4:0]regs[7:0];
-	
-//	assign regs[5]=btn;
 	assign led= regs[6];
-	
 	rom memory(dout, regs[7]);
-	
 	assign op0=dout[7:6];//[1:0]
 	assign op1=dout[5:3];//[2:0]
 	assign op2=dout[5:4];//[1:0]
