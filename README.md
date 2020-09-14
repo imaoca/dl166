@@ -1,7 +1,7 @@
 # dl166
 4 BIT Original CPU
 
-#Registers  
+# Registers  (4 bit)
 ------------------------  
 |No|Register|Description
 ----|----|----
@@ -14,7 +14,7 @@
 |110| R6| OUTPUT PORT(write only)|  
 |111| R7| Program Counter(PC)|  
 
-#Instruction Set  
+# Instruction Set  (8 bit)
 ------------------------  
 |Binary|Assebler|Description|
 ----|----|----
@@ -39,6 +39,9 @@ CPU and Memory Verilog-HDL Source files
 testbench3.v  
 Test bech for DL166  
 
+rom.v
+Memory module and set pre installed program
+
 asm.txt  
 sample code to test DL166.  
 // this program is counting up R0 register and show this on LEDs.  
@@ -48,4 +51,5 @@ sample code to test DL166.
 #Known bugs
 ------------------------  
 
-Carry flag behavior is incomprehensible. You must define a condition that clears the carry flag.
+Carry flag behavior is incomprehensible. I must define a condition that clears the carry flag.
+It is fixed on 2020/09/14
