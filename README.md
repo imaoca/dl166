@@ -1,5 +1,5 @@
 # dl166
-4 BIT Original CPU, it has programming space is 16 steps. it has 8 registers include program counter. They have 4 bit. Instruction set is 8bit.
+4 BIT Original CPU. it has 16 steps programming space. it has 8 registers include program counter. They have 4 bit. Instruction set is 8bit.
 
 # Registers  (4 bit)
 ------------------------  
