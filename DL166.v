@@ -1,11 +1,11 @@
 module cpu(input reset,input clk,input[3:0] btn,output[3:0]led);
 	wire[7:0] dout;	
-	reg c_flag=1'b0;
+	reg c_flag;
 	reg [4:0]regs[7:0];
 	assign led= regs[6];
 	rom memory(dout, regs[7]);
 	always @(posedge clk)
-	  if(reset==0) {regs[0],regs[1],regs[2],regs[3],regs[4],regs[7]}=0;
+	  if(reset==0) {regs[0],regs[1],regs[2],regs[3],regs[4],regs[6],regs[7],c_flag}=0;
 	  else begin
 	   regs[5]=btn;
  	   casez(dout)
