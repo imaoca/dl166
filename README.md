@@ -33,7 +33,7 @@
 
 # Carry flag
 ------------------------  
-The instruction sets for which the carry flag is set are ADD and INC. The set carry flag does not change until these instructions are executed.
+The instruction sets for which the carry flag is set are ADD and INC. The set carry flag does not change until these instructions are executed. Also, if the carry flag is set, the register value is undefined.
 
 # Files
 ------------------------  
