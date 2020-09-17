@@ -31,7 +31,11 @@
 |10-10-####| SET #### |acc=####|  
 |00-ddd-sss| MOV (ddd),(sss)|(ddd)=(sss)|
 
-#Files
+# Carry flag
+------------------------  
+The instruction sets for which the carry flag is set are ADD and INC. The set carry flag does not change until these instructions are executed.
+
+# Files
 ------------------------  
 DL166.v  
 CPU and Memory Verilog-HDL Source files  
@@ -48,7 +52,7 @@ sample code to test DL166.
 00: inc R6 // 01100110   
 01: jmp 0  // 10010000
 
-#Known bugs
+# Known bugs
 ------------------------  
 
 Carry flag behavior is incomprehensible. I must define a condition that clears the carry flag.
