@@ -1,13 +1,14 @@
-module cpu(input reset,input clk,input[3:0] btn,output[3:0]led);
-	wire[4:0]op; wire[2:0]sss; // Instruction set (op is operator,sss is operalnd)	
+module cpu(input reset,input clk,input[3:0] btn,output[3:0]led,output[3:0]adr,input[7:0]dout);
+   	wire[4:0]op=dout[7:3]; 
+	wire[2:0]sss=dout[2:0]; // Instruction set (op is operator,sss is operalnd)	
 	reg c_flag;
-	reg [3:0]regs[7:0];
-	assign led= regs[6];
-	rom memory({op,sss}, regs[7]);
+	reg [4:0]regs[7:0];
+	assign led = regs[6];
+	assign adr = regs[7];
 	always @(posedge clk)
-	  if(reset==0) {regs[0],regs[1],regs[2],regs[3],regs[4],regs[6],regs[7],c_flag}<=0;
+	  if(reset==0) {regs[0],regs[1],regs[2],regs[3],regs[4],regs[6],regs[7],c_flag}=0;
 	  else begin
-	   regs[5]<=btn;
+	   regs[5]=btn;
  	   casez(op)
 /* MOV */	8'b00zzz: regs[op[2:0]]<=regs[sss];
 /* ADD */	8'b01000: if (regs[0]+regs[sss] > 15) c_flag<=1;else begin regs[0]<=regs[0]+regs[sss];c_flag<=0;end
@@ -22,6 +23,6 @@ module cpu(input reset,input clk,input[3:0] btn,output[3:0]led);
 /* JMP */	8'b1001z: regs[7]<= {op[0],sss};
 /* SET */	8'b1010z: regs[0]<= {op[0],sss};	
 	   endcase		
-/* PC++ */ if(op[4:1]!=4'b1000 && op[4:1]!=4'b1001) regs[7]<=regs[7]+1;
+/* PC++ */ if(op[4:1]!=4'b1000 && op[4:1]!=4'b1001) regs[7]=regs[7]+1;
 	end
 endmodule
