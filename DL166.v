@@ -1,27 +1,27 @@
 module cpu(input reset,input clk,input[3:0] btn,output[3:0]led);
-	wire[7:0] dout;	
+	wire[4:0]op; wire[2:0]sss; // Instruction set (op is operator,sss is operalnd)	
 	reg c_flag;
 	reg [4:0]regs[7:0];
 	assign led= regs[6];
-	rom memory(dout, regs[7]);
+	rom memory({op,sss}, regs[7]);
 	always @(posedge clk)
 	  if(reset==0) {regs[0],regs[1],regs[2],regs[3],regs[4],regs[6],regs[7],c_flag}=0;
 	  else begin
 	   regs[5]=btn;
- 	   casez(dout)
-/* MOV */	8'b00zzzzzz: regs[dout[5:3]]=regs[dout[2:0]];
-/* ADD */	8'b01000zzz: begin regs[0]=regs[0]+regs[dout[2:0]];c_flag=regs[0][4];regs[0][4]=0;end  //Take care c_flag
-/* OR  */	8'b01001zzz: regs[0]=regs[0]|regs[dout[2:0]];
-/* AND */	8'b01010zzz: regs[0]=regs[0]&regs[dout[2:0]];
-/* XOR */	8'b01011zzz: regs[0]=regs[0]^regs[dout[2:0]];
-/* INC */	8'b01100zzz: begin regs[dout[2:0]]=regs[dout[2:0]]+1;c_flag=regs[dout[2:0]][4];regs[dout[2:0]][4]=0;end //Take care c_flag
-/* NOT */	8'b01101zzz: regs[dout[2:0]]=!regs[dout[2:0]];
-/* RSHIFT */	8'b01110zzz: begin c_flag=regs[dout[2:0]][0];regs[dout[2:0]]=regs[dout[2:0]]>>1;end	//Take care c_flag
-/* LSHIFT */	8'b01111zzz: begin c_flag=regs[dout[2:0]][3];regs[dout[2:0]]=regs[dout[2:0]]<<1;end	//Take care c_flag
-/* JNC */	8'b1000zzzz: regs[7]= (c_flag)?regs[7]+1:dout[3:0];	//Take care c_flag
-/* JMP */	8'b1001zzzz: regs[7]=dout[3:0];
-/* SET */	8'b1010zzzz: regs[0]=dout[3:0];	
+ 	   casez(op)
+/* MOV */	8'b00zzz: regs[op[2:0]]=regs[sss];
+/* ADD */	8'b01000: begin regs[0]=regs[0]+regs[sss];c_flag=regs[0][4];regs[0][4]=0;end  //Take care c_flag
+/* OR  */	8'b01001: regs[0]=regs[0]|regs[sss];
+/* AND */	8'b01010: regs[0]=regs[0]&regs[sss];
+/* XOR */	8'b01011: regs[0]=regs[0]^regs[sss];
+/* INC */	8'b01100: begin regs[sss]=regs[sss]+1;c_flag=regs[sss][4];regs[sss][4]=0;end //Take care c_flag
+/* NOT */	8'b01101: regs[sss]=!regs[sss];
+/* RSHIFT */	8'b01110: begin c_flag=regs[sss][0];regs[sss]=regs[sss]>>1;end	//Take care c_flag
+/* LSHIFT */	8'b01111: begin c_flag=regs[sss][3];regs[sss]=regs[sss]<<1;end	//Take care c_flag
+/* JNC */	8'b1000z: regs[7]= (c_flag)?regs[7]+1:{op[0],sss};	//Take care c_flag
+/* JMP */	8'b1001z: regs[7]= {op[0],sss};
+/* SET */	8'b1010z: regs[0]= {op[0],sss};	
 	   endcase		
-/* PC++ */ if(dout[7:4]!=4'b1000 && dout[7:4]!=4'b1001) regs[7]=regs[7]+1;
+/* PC++ */ if(op[4:1]!=4'b1000 && op[4:1]!=4'b1001) regs[7]=regs[7]+1;
 	end
 endmodule
