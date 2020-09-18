@@ -1,3 +1,7 @@
+/* They are ROTATE test programs.
+On my FPGA evaluation board, the R6 is connected to four LEDs on the board.
+*/
+
 // ROTATE test Program1
 
 0	A1	SET 8
