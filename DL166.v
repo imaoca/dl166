@@ -1,13 +1,13 @@
 module cpu(input reset,input clk,input[3:0] btn,output[3:0]led,output[3:0]adr,input[7:0]dout);
    wire[4:0]op=dout[7:3]; 
-	wire[2:0]sss=dout[2:0]; // Instruction set (op is operator,sss is operalnd)	
-	reg c_flag;
-	reg [3:0]regs[7:0];
-	assign led = ~regs[6];
-	assign adr = regs[7];
-	always @(posedge clk)
-	  if(reset==0) {regs[0],regs[1],regs[2],regs[3],regs[4],regs[6],regs[7],c_flag}=0;
-	  else begin
+   wire[2:0]sss=dout[2:0]; // Instruction set (op is operator,sss is operalnd)	
+   reg c_flag;
+   reg [3:0]regs[7:0];
+   assign led = ~regs[6];
+   assign adr = regs[7];
+   always @(posedge clk)
+	if(reset==0) {regs[0],regs[1],regs[2],regs[3],regs[4],regs[6],regs[7],c_flag}=0;
+	else begin
 	   regs[5]=btn;
  	   casez(op)
 /* MOV */	8'b00zzz: regs[op[2:0]]=regs[sss];
