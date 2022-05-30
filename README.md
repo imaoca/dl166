@@ -55,7 +55,7 @@ sample code to test DL166.
 
 # dl166 Trainer
 ------------------------ 
-![](2022_05_28 17_12.jpg)
+![Figure 1](2022_05_28 17_12.jpg)
 
 # dl166 Trainer demo video
 ------------------------  
