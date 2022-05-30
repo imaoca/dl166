@@ -52,6 +52,16 @@ sample code to test DL166.
 00: inc R6 // 01100110   
 01: jmp 0  // 10010000
 
+
+# dl166 Trainer
+------------------------  
+![](2022_05_28 17_12 Office Lens.jpg)
+
+# dl166 Trainer demo video
+------------------------  
+![](2022_05_30 8_48 Office Lens.jpg)
+https://youtu.be/voOBIK2bgys
+
 # Known bugs
 ------------------------  
 
