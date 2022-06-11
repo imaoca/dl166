@@ -68,6 +68,10 @@ sample code to test DL166.
 
 https://youtu.be/voOBIK2bgys
 
+# dl166 pocket size trainer
+arduino emulates the dl166.
+![](arduinoTrainer.jpg)
+
 # Known bugs
 ------------------------  
 
