@@ -70,6 +70,7 @@ https://youtu.be/voOBIK2bgys
 
 # dl166 pocket size trainer
 arduino emulates the dl166.
+Currently under development.
 ![](arduinoTrainer.jpg)
 
 # Known bugs
