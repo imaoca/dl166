@@ -73,6 +73,9 @@ arduino emulates the dl166.
 Currently under development.
 ![](arduinoTrainer.jpg)
 
+# PCB
+![](dl166_4.png)
+
 # Known bugs
 ------------------------  
 
