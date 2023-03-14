@@ -28,7 +28,7 @@
 |01-111-sss| LROTATE (sss)|regs[sss]=regs[sss]<<1+(regs[sss]>>3 & 4'b0001)|  
 |10-00-####| JNC #### |if (C==0) PC=#### else PC=PC+1|  
 |10-01-####| JMP #### |PC = ####|  
-|10-10-####| SET #### |acc=####|  
+|10-10-####| MVI #### |acc=####|  
 |00-ddd-sss| MOV (ddd),(sss)|(ddd)=(sss)|
 
 # Carry flag
