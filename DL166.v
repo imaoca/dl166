@@ -16,7 +16,7 @@ module cpu(input reset,input clk,input[3:0] btn,output[3:0]led,output[3:0]adr,in
 /* AND */	5'b01010: regs[0]<=regs[0]&regs[sss];
 /* XOR */	5'b01011: regs[0]<=regs[0]^regs[sss];
 /* INC */	5'b01100: begin regs[sss]<=regs[sss]+1; c_flag <= (regs[sss]+1 > 15)?1:0;end
-/* NOT */	5'b01101: regs[sss]<=!regs[sss];
+/* NOT */	5'b01101: regs[sss]<=~regs[sss];
 /*RROTATE*/	5'b01110: regs[sss]=regs[sss]>>1| (regs[sss]<<3 & 4'b1000);
 /*LROTATE*/	5'b01111: regs[sss]=regs[sss]<<1| (regs[sss]>>3 & 4'b0001);	
 /* JNC */	5'b1000z: begin regs[7]<= (c_flag)?regs[7]+1:{op[0],sss};c_flag=0;end
