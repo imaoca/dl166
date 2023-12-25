@@ -23,9 +23,9 @@
 |01-010-sss| AND (sss)|  acc = acc & (sss)|  
 |01-011-sss| XOR (sss)|  acc = acc ^ (sss) | 
 |01-100-sss| INC (sss)|  (sss)=(sss)+1|  
-|01-101-sss| NOT (sss)|  (sss)=!(sss)|  
-|01-110-sss| RROTATE (sss)|regs[sss]=regs[sss]>>1+(regs[sss]<<3 & 4'b1000)|  
-|01-111-sss| LROTATE (sss)|regs[sss]=regs[sss]<<1+(regs[sss]>>3 & 4'b0001)|  
+|01-101-sss| NOT (sss)|  (sss)=~(sss)|  
+|01-110-sss| LROTATE (sss)|regs[sss]=regs[sss]>>1+(regs[sss]<<3 & 4'b1000)|  
+|01-111-sss| UROTATE (sss)|regs[sss]=regs[sss]<<1+(regs[sss]>>3 & 4'b0001)|  
 |10-00-####| JNC #### |if (C==0) PC=#### else PC=PC+1|  
 |10-01-####| JMP #### |PC = ####|  
 |10-10-####| MVI #### |acc=####|  
